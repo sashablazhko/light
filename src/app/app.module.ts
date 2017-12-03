@@ -11,6 +11,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductSingleComponent } from './products/product-single/product-single.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { AuthService } from './shared/services/auth.service';
 
 import 'rxjs/add/operator/map';
@@ -26,7 +27,8 @@ import 'rxjs/add/observable/throw';
     ProductsComponent,
     ProductListComponent,
     ProductSingleComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
