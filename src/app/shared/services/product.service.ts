@@ -6,7 +6,7 @@ import { Product } from '../models/product';
 
 @Injectable()
 export class ProductService {
-  private productsUrl = 'http://smktesting.herokuapp.com/api/products';
+  private productsUrl = 'http://smktesting.herokuapp.com/api/products/';
 
   constructor(private http: Http) {}
 
@@ -14,20 +14,33 @@ export class ProductService {
    * Get all product
    */
   getProducts(): Observable<Product[]> {
-    return this.http.get(this.productsUrl)
+    let headers = new Headers();
+    let token   = localStorage.getItem('auth_token');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    return this.http.get(this.productsUrl, { headers })
       .map(res => res.json())
       .map(products => products.map(this.toProduct))
       .catch(this.handleError);
   }
+
+  /**
+   * Get product by id
+   */
   getProduct(id: number): Observable<Product> {
-    return this.http.get(this.productsUrl)
+    let headers = new Headers();
+    let token   = localStorage.getItem('auth_token');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    return this.http.get(this.productsUrl, { headers })
       .map(res => res.json())
-      .map(products => products.find(x => x.id == id))
+      .map(product => product.map(this.toProduct))
+      .map(product => product.find(x => x.id == id))
       .catch(this.handleError);
   }
 
   /**
-   * Convert user info from the API to our standard/format
+   * Convert product info from the API to our standard/format
    */
   private toProduct(product): Product {
     return {

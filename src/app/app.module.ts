@@ -10,6 +10,8 @@ import { ProductService } from './shared/services/product.service';
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductSingleComponent } from './products/product-single/product-single.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './shared/services/auth.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -23,7 +25,8 @@ import 'rxjs/add/observable/throw';
     AppComponent,
     ProductsComponent,
     ProductListComponent,
-    ProductSingleComponent
+    ProductSingleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import 'rxjs/add/observable/throw';
     AppRoutingModule
   ],
   providers: [
-    ProductService
+    ProductService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

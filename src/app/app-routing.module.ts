@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductSingleComponent } from './products/product-single/product-single.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -12,16 +13,26 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'products',
     component: ProductsComponent,
     children: [
       {
         path: '',
-        component: ProductListComponent
-      },
-      {
-        path: ':id',
-        component: ProductSingleComponent
+        component: ProductListComponent,
+        children: [
+          {
+            path: ':id',
+            component: ProductSingleComponent
+          },
+          {
+            path: '',
+            component: ProductSingleComponent
+          }
+        ]
       }
     ]
   }

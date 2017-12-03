@@ -2,14 +2,13 @@
   <h3>Products</h3>
 </div>
 
-<div class="product-list row" *ngIf="products">
-  <div class="col-sm-6" *ngFor="let product of products">
+<div class="product-list" *ngIf="products">
 
-    <div class="product-card text-center" [routerLink]="['/products', product.id]">
-      <!--<img [src]="product.img" alt="item" class="product-img img-rounded">-->
-
-      <p>{{ product.title }}</p>
-    </div>
-
-  </div>
+  <button type="button" class="btn btn-default"
+          *ngFor="let product of products"
+          (click)="onSelect(product)"
+          [class.selected]="isSelected(product)">
+    {{ product.title }}
+  </button>
 </div>
+<router-outlet></router-outlet>
