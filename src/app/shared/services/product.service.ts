@@ -7,6 +7,7 @@ import { Product } from '../models/product';
 @Injectable()
 export class ProductService {
   private productsUrl = 'http://smktesting.herokuapp.com/api/products/';
+  private observableProd: Observable<Product[]>;
 
   constructor(private http: Http) {}
 
@@ -18,23 +19,18 @@ export class ProductService {
     let token   = localStorage.getItem('auth_token');
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', token);
-    return this.http.get(this.productsUrl, { headers })
-      .map(res => res.json())
-      .map(products => products.map(this.toProduct))
-      .catch(this.handleError);
+    this.observableProd = this.http.get(this.productsUrl, { headers })
+                            .map(res => res.json())
+                            .map(products => products.map(this.toProduct))
+                            .catch(this.handleError);
+    return this.observableProd;
   }
 
   /**
    * Get product by id
    */
   getProduct(id: number): Observable<Product> {
-    let headers = new Headers();
-    let token   = localStorage.getItem('auth_token');
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    return this.http.get(this.productsUrl, { headers })
-      .map(res => res.json())
-      .map(product => product.map(this.toProduct))
+    return this.observableProd
       .map(product => product.find(x => x.id == id))
       .catch(this.handleError);
   }

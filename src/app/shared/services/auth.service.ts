@@ -22,10 +22,10 @@ export class AuthService {
   /**
    * Registration the user
    */
-  register(username: string, password: string): Observable<string> {
+  register(username: string, password: string): Observable<any> {
     const data = JSON.stringify({
-      username: username,
-      password: password
+      username,
+      password
     });
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -51,10 +51,10 @@ export class AuthService {
   /**
    * Log the user
    */
-  login(username: string, password: string): Observable<string> {
+  login(username: string, password: string): Observable<any> {
       const data = JSON.stringify({
-        username: username,
-        password: password
+        username,
+        password
       });
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
