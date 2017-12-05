@@ -1,6 +1,13 @@
-<div *ngIf="product">
+<div *ngIf="product" class="col-sm-6">
   <h2>Selected Product</h2>
   Title: {{product.title}} <br />
   Image: <img [src]="product.img" alt="item" class="product-img img-rounded"> <br />
   Text: {{product.text}} <br />
 </div>
+<div *ngIf="product" class="col-sm-6">
+  <div *ngIf="isLogin; else elseBlock" class="col-sm-6">
+    <app-reviews-list></app-reviews-list>
+  </div>
+  <ng-template #elseBlock>You must log-in to see reviews</ng-template>
+</div>
+

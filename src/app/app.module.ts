@@ -13,6 +13,7 @@ import { ProductSingleComponent } from './products/product-single/product-single
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './shared/services/auth.service';
+import { ReviewsListComponent } from './products/reviews-list/reviews-list.component';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -28,7 +29,8 @@ import 'rxjs/add/observable/throw';
     ProductListComponent,
     ProductSingleComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReviewsListComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { ProductService } from '../../shared/services/product.service';
 import { Product } from '../../shared/models/product';
 
 @Component({
+  selector: 'app-product-list',
   templateUrl: 'product-list.component.html',
   styleUrls: ['product-list.component.css']
 })

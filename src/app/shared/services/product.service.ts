@@ -3,10 +3,12 @@ import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Product } from '../models/product';
+import { Review } from '../models/review';
 
 @Injectable()
 export class ProductService {
   private productsUrl = 'http://smktesting.herokuapp.com/api/products/';
+  private reviewsUrl = 'http://smktesting.herokuapp.com/api/reviews/';
   private observableProd: Observable<Product[]>;
 
   constructor(private http: Http) {}
@@ -32,6 +34,20 @@ export class ProductService {
   getProduct(id: number): Observable<Product> {
     return this.observableProd
       .map(product => product.find(x => x.id == id))
+      .catch(this.handleError);
+  }
+
+  /**
+   * Get all reviews
+   */
+  getReviews(id: number): Observable<Review[]> {
+    let headers = new Headers();
+    let token   = localStorage.getItem('auth_token');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    return this.http.get(`${this.reviewsUrl}${id}`, { headers })
+      .map(res => res.json())
+      // .map(products => products.map(this.toProduct))
       .catch(this.handleError);
   }
 
