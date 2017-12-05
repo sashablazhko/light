@@ -5,6 +5,7 @@ import { Product } from '../../shared/models/product';
 import { ProductService } from '../../shared/services/product.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { ReviewsListComponent } from '../reviews-list/reviews-list.component';
+import { UserFormComponent } from '../user-form/user-form.component';
 
 
 @Component({

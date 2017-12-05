@@ -6,6 +6,7 @@
 </div>
 <div *ngIf="product" class="col-sm-6">
   <div *ngIf="isLogin; else elseBlock" class="col-sm-6">
+    <app-user-form></app-user-form>
     <app-reviews-list></app-reviews-list>
   </div>
   <ng-template #elseBlock>You must log-in to see reviews</ng-template>
