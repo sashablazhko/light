@@ -1,6 +1,8 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Sendreview } from '../../shared/models/sendreview';
+import { RatingModule } from 'ngx-rating';
+import { ProductService } from '../../shared/services/product.service';
 
 @Component({
   selector: 'app-user-form',
@@ -12,6 +14,7 @@ export class UserFormComponent implements AfterViewInit {
   xrate: number[] = [0, 1, 2, 3, 4, 5];
   model: Sendreview = {'rate': 0, 'text': ''};
   submitted: boolean = false;
+  test: any;
 
   // Объект с ошибками, которые будут выведены в пользовательском интерфейсе
   formErrors = {
@@ -55,6 +58,10 @@ export class UserFormComponent implements AfterViewInit {
   onSubmit() {
     this.submitted = true;
     console.log(this.model);
+  }
+
+  onClickStar(){
+    console.log(this.test);
   }
 
   /**

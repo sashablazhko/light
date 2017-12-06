@@ -21,6 +21,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 import { UserFormComponent } from './products/user-form/user-form.component';
+import { RatingModule } from 'ngx-rating';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { UserFormComponent } from './products/user-form/user-form.component';
     BrowserModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RatingModule
   ],
   providers: [
     ProductService,
