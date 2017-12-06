@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../../shared/models/user';
+import { Sendreview } from '../../shared/models/sendreview';
 
 @Component({
   selector: 'app-user-form',
@@ -9,24 +9,19 @@ import { User } from '../../shared/models/user';
 })
 export class UserFormComponent implements AfterViewInit {
 
-  roles: string[] = ['Guest', 'Moderator', 'Administartor'];
-  model: User = new User(1, '', '', null);
+  xrate: number[] = [0, 1, 2, 3, 4, 5];
+  model: Sendreview = {'rate': 0, 'text': ''};
   submitted: boolean = false;
 
   // Объект с ошибками, которые будут выведены в пользовательском интерфейсе
   formErrors = {
-    'name': '',
-    'age': ''
+    'text': ''
   };
 
   // Объект с сообщениями ошибок
   validationMessages = {
-    'name': {
+    'text': {
       'required': 'Обязательное поле.',
-      'minlength': 'Значение должно быть не менее 4х символов.',
-    },
-    'age': {
-      'required': 'Обязательное поле.'
     }
   };
 
@@ -52,12 +47,22 @@ export class UserFormComponent implements AfterViewInit {
         for (let key in control.errors) {
           this.formErrors[field] += message[key] + ' ';
         }
+        this.clearMessages();
       }
     }
   }
 
   onSubmit() {
     this.submitted = true;
-    console.log('submitted');
+    console.log(this.model);
+  }
+
+  /**
+   * Clear all messages after 5 seconds
+   */
+  clearMessages() {
+    setTimeout(() => {
+      this.formErrors.text = '';
+    }, 5000);
   }
 }

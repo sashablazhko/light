@@ -1,7 +1,7 @@
-.ng-valid[required], .ng-valid.required  {
-  border-bottom: 5px solid mediumseagreen; 
-}
+/*.ng-valid[required], .ng-valid.required  {*/
+  /*border-bottom: 5px solid mediumseagreen; */
+/*}*/
 
-.ng-invalid:not(form)  {
-  border-bottom: 5px solid red; 
-}
+/*.ng-invalid:not(form)  {*/
+  /*border-bottom: 5px solid red; */
+/*}*/

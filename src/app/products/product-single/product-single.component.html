@@ -5,7 +5,7 @@
   Text: {{product.text}} <br />
 </div>
 <div *ngIf="product" class="col-sm-6">
-  <div *ngIf="isLogin; else elseBlock" class="col-sm-6">
+  <div *ngIf="isLogin; else elseBlock">
     <app-user-form></app-user-form>
     <app-reviews-list></app-reviews-list>
   </div>
