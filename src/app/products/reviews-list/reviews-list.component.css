@@ -1,0 +1,21 @@
+.review{
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.review-info-name{
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.review-mail{
+  color: #777;
+}
+
+.review-rate-desc{
+  font-size: 1.4rem;
+  font-weight: bold;
+}

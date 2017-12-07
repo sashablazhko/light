@@ -1,20 +1,19 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Sendreview } from '../../shared/models/sendreview';
 import { RatingModule } from 'ngx-rating';
 import { ProductService } from '../../shared/services/product.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
   templateUrl: 'user-form.component.html',
   styleUrls: ['user-form.component.css']
 })
-export class UserFormComponent implements AfterViewInit {
-
-  xrate: number[] = [0, 1, 2, 3, 4, 5];
+export class UserFormComponent implements OnInit, AfterViewInit {
   model: Sendreview = {'rate': 0, 'text': ''};
   submitted: boolean = false;
-  test: any;
+  selectedId: number;
 
   // Объект с ошибками, которые будут выведены в пользовательском интерфейсе
   formErrors = {
@@ -27,10 +26,18 @@ export class UserFormComponent implements AfterViewInit {
       'required': 'Обязательное поле.',
     }
   };
-
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private productService: ProductService) { }
 
   // ViewChild - используем для получения доступа к указанному компоненту и его методам
   @ViewChild('userForm') userForm: NgForm;
+
+  ngOnInit() {
+    this.activatedRoute.params.forEach((params: Params) => {
+      this.selectedId = +params['id']; // чтение опционального параметра
+    });
+  }
 
   ngAfterViewInit() {
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -55,13 +62,19 @@ export class UserFormComponent implements AfterViewInit {
     }
   }
 
+  // onSubmit() {
+  //   this.submitted = true;
+  //   this.productService.sendReview(this.selectedId, this.model)
+  //     .subscribe(data => console.log(data));
+  // }
+  /**
+   * FAKE onSubmit for post review
+   */
   onSubmit() {
     this.submitted = true;
-    console.log(this.model);
-  }
-
-  onClickStar(){
-    console.log(this.test);
+    this.productService.sendReview(this.selectedId, this.model);
+    this.model.rate = 0;
+    this.model.text = '';
   }
 
   /**
@@ -70,6 +83,6 @@ export class UserFormComponent implements AfterViewInit {
   clearMessages() {
     setTimeout(() => {
       this.formErrors.text = '';
-    }, 5000);
+    }, 3000);
   }
 }

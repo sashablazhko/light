@@ -51,6 +51,34 @@ export class ProductService {
       .catch(this.handleError);
   }
 
+  // /**
+  //  * Send review
+  //  */
+  // sendReview(id: number, review: object): Observable<any> {
+  //   const data = JSON.stringify(review);
+  //   let headers = new Headers();
+  //   let token   = localStorage.getItem('auth_token');
+  //   headers.append('Content-Type', 'application/json');
+  //   headers.append('Authorization', token);
+  //   return this.http.post(`${this.reviewsUrl}${id}`, data, {headers: headers})
+  //     .map(res => res.json())
+  //     .do(res => {
+  //       console.log(res);
+  //     })
+  //     .catch(this.handleError);
+  // }
+  /**
+   * FAKE Send review
+   */
+  sendReview(id: number, review: object): void {
+    const data = JSON.stringify(review);
+    let token   = localStorage.getItem('auth_token');
+    alert(`FAKE SEND REVIEW
+    id_prod: ${id}
+    token: ${token}
+    data: ${data}`);
+  }
+
   /**
    * Convert product info from the API to our standard/format
    */

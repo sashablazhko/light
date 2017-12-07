@@ -1,11 +1,7 @@
-/*.ng-valid[required], .ng-valid.required  {*/
-  /*border-bottom: 5px solid mediumseagreen; */
-/*}*/
-
-/*.ng-invalid:not(form)  {*/
-  /*border-bottom: 5px solid red; */
-/*}*/
-
 :host /deep/ .half100{
   color: orangered;
+}
+
+label{
+  font-size: 1.9rem;
 }

@@ -14,14 +14,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './shared/services/auth.service';
 import { ReviewsListComponent } from './products/reviews-list/reviews-list.component';
+import { UserFormComponent } from './products/user-form/user-form.component';
+import { RatingModule } from 'ngx-rating';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
-import { UserFormComponent } from './products/user-form/user-form.component';
-import { RatingModule } from 'ngx-rating';
+
 
 
 @NgModule({

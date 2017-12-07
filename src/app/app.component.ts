@@ -8,7 +8,8 @@ import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-my',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
   products: Product[];

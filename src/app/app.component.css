@@ -1,3 +1,7 @@
+:host /deep/ .container{
+  background-color: #ddd;
+}
+
 li{
   cursor: pointer;
 }

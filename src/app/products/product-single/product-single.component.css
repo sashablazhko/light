@@ -1,0 +1,15 @@
+.title,
+.img,
+.about{
+  margin-bottom: 10px;
+}
+
+.title-desc,
+.about-desc{
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+
+.must-login{
+  margin-top: 90px;
+}

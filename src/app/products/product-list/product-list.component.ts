@@ -17,15 +17,13 @@ export class ProductListComponent implements OnInit {
               private service: ProductService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.forEach((params: Params) => {
-      this.selectedId = +params['id']; // чтение опционального параметра
-      this.service.getProducts()
-        .subscribe(products => this.products = products);
-    });
+    this.service.getProducts()
+      .subscribe(products => this.products = products);
   }
 
   onSelect(selected: Product) {
     this.router.navigate(['/products', selected.id]);
+    this.selectedId = selected.id;
   }
 
   isSelected(product) {

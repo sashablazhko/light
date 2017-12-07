@@ -10,7 +10,8 @@ import { UserFormComponent } from '../user-form/user-form.component';
 
 @Component({
   selector: 'app-product-single',
-  templateUrl: 'product-single.component.html'
+  templateUrl: 'product-single.component.html',
+  styleUrls: ['product-single.component.css']
 })
 export class ProductSingleComponent implements OnInit {
   isLogin: boolean;
@@ -31,17 +32,4 @@ export class ProductSingleComponent implements OnInit {
         .subscribe(product => this.product = product);
     });
   }
-
-  // /**
-  //  * Delete a user
-  //  */
-  // deleteUser() {
-  //   this.service.deleteUser(this.user.id)
-  //     .subscribe(data => {
-  //       console.log('user was deleted');
-  //       // route back to the users page
-  //       this.router.navigate(['/users']);
-  //     });
-  // }
-
 }

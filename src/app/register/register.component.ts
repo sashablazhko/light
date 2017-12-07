@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   /**
-   * Login a user
+   * Register a user
    */
   register() {
     this.successMessage = '';
@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
             }else {
               this.errorMessage = data.message;
             }
-
           },
           err => {
             console.error(err);

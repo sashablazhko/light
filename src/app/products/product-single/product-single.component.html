@@ -1,14 +1,26 @@
 <div *ngIf="product" class="col-sm-6">
-  <h2>Selected Product</h2>
-  Title: {{product.title}} <br />
-  Image: <img [src]="product.img" alt="item" class="product-img img-rounded"> <br />
-  Text: {{product.text}} <br />
+  <h3>Selected Product</h3>
+  <div class="title">
+    <span class="title-desc">Title: </span>{{product.title}}
+  </div>
+  <hr>
+  <div class="img">
+    <img [src]="product.img" alt="item" class="product-img img-rounded"> <br />
+  </div>
+  <hr>
+  <div class="about">
+    <span class="about-desc">About: </span>{{product.text}}
+  </div>
 </div>
 <div *ngIf="product" class="col-sm-6">
   <div *ngIf="isLogin; else elseBlock">
     <app-user-form></app-user-form>
     <app-reviews-list></app-reviews-list>
   </div>
-  <ng-template #elseBlock>You must log-in to see reviews</ng-template>
+  <ng-template #elseBlock>
+    <div class="must-login">
+      <h4>You must log-in to see reviews</h4>
+    </div>
+  </ng-template>
 </div>
 

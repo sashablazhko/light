@@ -2,5 +2,8 @@
   cursor: pointer;
 }
 .selected{
-  background-color: lightpink;
+  background-color: #5bc0de;
+}
+.btn-item{
+  margin-right: 5px;
 }

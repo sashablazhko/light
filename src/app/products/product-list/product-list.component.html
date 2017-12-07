@@ -1,17 +1,14 @@
 <div class="jumbotron text-center">
-  <h3>Products</h3>
+  <h2>Products</h2>
 </div>
 
 <div class="product-list" *ngIf="products">
 
-  <button type="button" class="btn btn-default"
+  <button type="button" class="btn btn-default btn-item"
           *ngFor="let product of products"
           (click)="onSelect(product)"
           [class.selected]="isSelected(product)">
     {{ product.title }}
   </button>
-</div>
-<div *ngIf="products">
-
 </div>
 <router-outlet></router-outlet>

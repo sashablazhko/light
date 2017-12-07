@@ -1,9 +1,18 @@
 <div class="reviews-list" *ngIf="reviews">
   <h2>Reviews</h2>
-  <div *ngFor="let review of reviews">
-    {{review.created_by.username}} at {{review.created_at}}
-    {{review.created_by.email}}
-    Rate: {{review.rate}}
-    {{review.text}}
+  <div *ngFor="let review of reviews" class="review">
+    <div class="review-info">
+      <span class="review-info-name">{{review.created_by.username}}</span> at {{review.created_at}}
+    </div>
+    <div class="review-mail">
+      {{review.created_by.email}}
+    </div>
+    <div class="review-rate">
+      <span class="review-rate-desc">Rate: </span>      {{review.rate}}
+    </div>
+    <div class="review-text">
+      {{review.text}}
+    </div>
+
   </div>
 </div>
