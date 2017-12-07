@@ -6,13 +6,9 @@
         <a routerLink="/" class="navbar-brand">Home</a>
       </div>
 
-      <ul class="nav navbar-nav">
-        <li><a routerLink="/products">Products List</a></li>
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
-      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+        <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
       </ul>
     </div>
   </div>

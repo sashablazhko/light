@@ -17,12 +17,11 @@ export class ReviewsListComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.forEach((params: Params) => {
-      let id = +params['id']; // конвертируем значение параметра id в тип number
+      let id = +params['id'];
       this.productService
-        .getReviews(id)  // обращаемся к сервису и запрашиваем фразу по id. Получаем Promise
+        .getReviews(id)
         .subscribe(reviews => {
           this.reviews = reviews.reverse();
-          // console.log(this.reviews);
         });
     });
 

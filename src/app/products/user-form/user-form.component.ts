@@ -15,12 +15,10 @@ export class UserFormComponent implements OnInit, AfterViewInit {
   submitted: boolean = false;
   selectedId: number;
 
-  // Объект с ошибками, которые будут выведены в пользовательском интерфейсе
   formErrors = {
     'text': ''
   };
 
-  // Объект с сообщениями ошибок
   validationMessages = {
     'text': {
       'required': 'Обязательное поле.',
@@ -30,12 +28,11 @@ export class UserFormComponent implements OnInit, AfterViewInit {
               private activatedRoute: ActivatedRoute,
               private productService: ProductService) { }
 
-  // ViewChild - используем для получения доступа к указанному компоненту и его методам
   @ViewChild('userForm') userForm: NgForm;
 
   ngOnInit() {
     this.activatedRoute.params.forEach((params: Params) => {
-      this.selectedId = +params['id']; // чтение опционального параметра
+      this.selectedId = +params['id'];
     });
   }
 
@@ -49,7 +46,6 @@ export class UserFormComponent implements OnInit, AfterViewInit {
 
     for (let field in this.formErrors) {
       this.formErrors[field] = '';
-      // form.get - получение элемента управления
       let control = form.get(field);
 
       if (control && control.dirty && !control.valid) {
